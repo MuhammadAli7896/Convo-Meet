@@ -60,6 +60,25 @@ Convo Meet is a Next.js powered video conferencing application inspired by Zoom.
    NEXT_PUBLIC_BASE_URL=http://localhost:3000
    ```
 
+4. **Get Clerk Key and Secret:**
+   - Go to https://clerk.com/nextjs-authentication and click start building.
+   - Create and account or sign up with google or github.
+   - You are directed to your dashboard.
+   - Now create a project for your application.
+   - Go to Social Connections from the sidebar.
+   - Choose your social media platforms that you want for authentication on your app.
+   - Now go to API keys from the sidebar and copy the publishable key and secret that is given.
+   - In your .env.local file, simply paste it.
+   - Refer to the docs https://clerk.com/docs/authentication/overview for more info.
+  
+5. **Get Stream API for audio and video:**
+   - Go to https://getstream.io/try-for-free/ and create your account.
+   - Go to the dashboard.
+   - Create an app.
+   - Give your app a name, select Feed Server Location and then Chat Data Storage Location and Create App.
+   - Go to the application, in the overview section, copy the api key and secret and paste it in the .env.local file.
+   - Refer to the docs https://getstream.io/chat/docs/ for more info.
+
 4. **Run the Development Server:**
    ```bash
    npm run dev
@@ -77,29 +96,24 @@ The application is deployed using Vercel, and you can deploy your own instance b
 1. **Sign up on Vercel:**
    Create an account on [Vercel](https://vercel.com/).
 
-2. **Install Vercel CLI:**
-   ```bash
-   npm install -g vercel
-   # or
-   yarn global add vercel
-   ```
+2. **Push Code on Github**:
+   Create a repository on your Github account and push the code into it.
 
-3. **Deploy the Application:**
-   Run the following command in the project directory:
-   ```bash
-   vercel
-   ```
+4. **Link Github with your account**:
+   Link your github account with vercel and install vercel in all your repositories.
 
-4. **Follow the Deployment Steps:**
-   Vercel CLI will guide you through the deployment process.
-   
-5. **Access the Deployed Application:**
-   Once deployed, your application will be accessible via the provided URL.
+5. **Import Repository**:
+   Import the repository that you have pushed to github of your project.
 
-### Contributors
+6. **Add environmental variables**:
+   Add environment variables in the environment variable section.
 
-- [Your Name](https://github.com/your-username)
+7. **Deploy**:
+   Now finally, click on the deploy and wait for the process. When the process finishes visit the dashboard. You can visit your application now.
 
----
 
-Feel free to contribute to this project by submitting pull requests or reporting issues. Let's make Convo Meet even better together! 🚀
+### Contact
+
+#### LinkedIn: https://www.linkedin.com/in/muhammad-ali-a772a025b/
+#### Portfolio: https://muhammad-aliportfolio.netlify.app/
+<br />
