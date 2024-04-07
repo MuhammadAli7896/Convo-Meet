@@ -89,7 +89,7 @@ Convo Meet is a Next.js powered video conferencing application inspired by Zoom.
 5. **Access the Application:**
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Deployment
+## Deployment
 
 The application is deployed using Vercel, and you can deploy your own instance by following these steps:
 
@@ -112,7 +112,7 @@ The application is deployed using Vercel, and you can deploy your own instance b
    Now finally, click on the deploy and wait for the process. When the process finishes visit the dashboard. You can visit your application now.
 
 
-### Contact
+## Contact
 
 #### LinkedIn: https://www.linkedin.com/in/muhammad-ali-a772a025b/
 #### Portfolio: https://muhammad-aliportfolio.netlify.app/
