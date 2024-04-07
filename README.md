@@ -1,8 +1,8 @@
-## Convo Meet - Next.js Video Conferencing Application
+# Convo Meet - Next.js Video Conferencing Application
 
 Convo Meet is a Next.js powered video conferencing application inspired by Zoom. It allows users to host and join meetings seamlessly. The application is built using TypeScript for enhanced type safety, Tailwind CSS and Shadcn for styling, Clerk for authentication, and Stream API for video calling functionalities.
 
-### Features
+## Features
 
 - **Instant Meetings:** Start impromptu video conferences instantly.
 - **Scheduled Meetings:** Schedule meetings for later with integrated calendar functionality.
@@ -13,23 +13,30 @@ Convo Meet is a Next.js powered video conferencing application inspired by Zoom.
 - **Authentication Options:** Sign in using Facebook, GitHub, or Google via Clerk.
 - **Deployment:** Deployed using Vercel for seamless hosting and scaling.
 
-### Tech Stack
+## Tech Stack
 
 - **Next.js:** Framework for React applications with server-side rendering and routing.
 - **TypeScript:** Superset of JavaScript with static typing for enhanced developer experience.
 - **Tailwind CSS:** Utility-first CSS framework for fast and responsive styling.
-- **Shadcn:** Styling library for adding shadow effects and depth to UI components.
+- **Shadcn:** Styling library for adding effects and depth to UI components.
 - **Clerk:** Authentication service for integrating social login options.
 - **Stream API:** Video calling API for building real-time video conferencing applications.
 - **Vercel:** Platform for hosting and deploying web applications.
 
-### Setting Up the Project
+## Getting Started
+
+### Prerequisites
+
+- Node.js and npm installed on your machine. To install node.js visit **https://nodejs.org/en/download**
+
+## Setting Up the Project
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/convo-meet.git
+   git clone https://github.com/MuhammadAli7896/Convo-Meet.git
    cd convo-meet
    ```
+   Make sure you have [git](https://git-scm.com/downloads) installed on your device.
 
 2. **Install Dependencies:**
    ```bash
@@ -39,8 +46,19 @@ Convo Meet is a Next.js powered video conferencing application inspired by Zoom.
    ```
 
 3. **Configure Environment Variables:**
-   - Create a `.env.local` file in the root directory.
-   - Define the required environment variables such as Stream API keys, Clerk API keys, etc.
+   - Create a .env.local file in the root directory and add the following environment variables:
+  ```env
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+   CLERK_SECRET_KEY=
+
+   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+   NEXT_PUBLIC_STREAM_API_KEY=
+   STREAM_SECRET_KEY=
+
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   ```
 
 4. **Run the Development Server:**
    ```bash
