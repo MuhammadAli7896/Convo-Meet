@@ -1,6 +1,6 @@
 # Convo Meet - Next.js Video Conferencing Application
 
-Convo Meet is a Next.js powered video conferencing application inspired by Zoom. It allows users to host and join meetings seamlessly. The application is built using TypeScript for enhanced type safety, Tailwind CSS and Shadcn for styling, Clerk for authentication, and Stream API for video calling functionalities.
+[Convo Meet](https://convo-meet.vercel.app/) is a Next.js powered video conferencing application inspired by Zoom. It allows users to host and join meetings seamlessly. The application is built using TypeScript for enhanced type safety, Tailwind CSS and Shadcn for styling, Clerk for authentication, and Stream API for video calling functionalities.
 
 ## Features
 
