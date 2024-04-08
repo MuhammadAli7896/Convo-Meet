@@ -11,7 +11,8 @@ import {
 } from '@stream-io/video-react-sdk';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Users, LayoutList } from 'lucide-react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +23,8 @@ import {
 import Loader from './Loader';
 import EndCallButton from './EndCallButton';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
+import { toast } from './ui/use-toast';
 
 type CallLayoutType = 'grid' | 'speaker-left' | 'speaker-right';
 
@@ -95,6 +98,18 @@ const MeetingRoom = () => {
           </div>
         </button>
         {!isPersonalRoom && <EndCallButton />}
+        <Button
+          className="rounded-[60px] bg-dark-2 px-4 py-2.5"
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            toast({
+              title: "Link Copied",
+            });
+          }}
+          title='Copy link'
+        >
+          <FontAwesomeIcon icon={faCopy} style={{ height: "16px" }} />
+        </Button>
       </div>
     </section>
   );

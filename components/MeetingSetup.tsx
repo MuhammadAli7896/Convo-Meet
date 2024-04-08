@@ -4,11 +4,16 @@ import {
   DeviceSettings,
   VideoPreview,
   useCall,
-  useCallStateHooks,
+  useCallStateHooks
 } from '@stream-io/video-react-sdk';
 
 import Alert from './Alert';
 import { Button } from './ui/button';
+import { useToast } from './ui/use-toast';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { useRouter } from 'next/navigation';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -24,6 +29,8 @@ const MeetingSetup = ({
   const callHasEnded = !!callEndedAt;
 
   const call = useCall();
+  const { toast } = useToast();
+  const router = useRouter();
 
   if (!call) {
     throw new Error(
@@ -61,7 +68,21 @@ const MeetingSetup = ({
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white">
-      <h1 className="text-center text-2xl font-bold">Setup</h1>
+      <div className='flex justify-between gap-3 items-center'>
+        <div className='-ml-12'>
+          <Button
+            className="rounded-md bg-dark-2 px-4 py-2.5"
+            onClick={() => {
+              router.replace("/")
+            }}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} style={{ color: 'white', height: "20px" }} />
+          </Button>
+        </div>
+        <div>
+          <h1 className="text-center text-2xl font-bold">Setup</h1>
+        </div>
+      </div>
       <VideoPreview />
       <div className="flex h-16 items-center justify-center gap-3">
         <label className="flex items-center justify-center gap-2 font-medium">
@@ -74,16 +95,30 @@ const MeetingSetup = ({
         </label>
         <DeviceSettings />
       </div>
-      <Button
-        className="rounded-md bg-green-500 px-4 py-2.5"
-        onClick={() => {
-          call.join();
+      <div className="flex gap-5">
 
-          setIsSetupComplete(true);
-        }}
-      >
-        Join meeting
-      </Button>
+        <Button
+          className="rounded-md bg-green-500 px-4 py-2.5"
+          onClick={() => {
+            call.join();
+
+            setIsSetupComplete(true);
+          }}
+        >
+          Join meeting
+        </Button>
+        <Button
+          className="rounded-md bg-dark-2 px-4 py-2.5"
+          onClick={() => {
+            navigator.clipboard.writeText(window.location.href);
+            toast({
+              title: "Link Copied",
+            });
+          }}
+        >
+          Copy Link
+        </Button>
+      </div>
     </div>
   );
 };
