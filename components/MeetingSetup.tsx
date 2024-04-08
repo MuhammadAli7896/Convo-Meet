@@ -13,7 +13,7 @@ import { useToast } from './ui/use-toast';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 
 const MeetingSetup = ({
   setIsSetupComplete,
@@ -30,7 +30,7 @@ const MeetingSetup = ({
 
   const call = useCall();
   const { toast } = useToast();
-  const router = useRouter();
+  // const router = useRouter();
 
   if (!call) {
     throw new Error(

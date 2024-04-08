@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
-import { avatarImages } from "@/constants";
+// import { avatarImages } from "@/constants";
 import { useToast } from "./ui/use-toast";
 
 interface MeetingCardProps {
@@ -51,7 +51,7 @@ const MeetingCard = ({
           </div>
         </div>
       </article>
-      <article className={isPreviousMeeting ? "flex relative" : ""}>
+      <article>
         {/* <div className="relative flex w-full max-sm:hidden">
           {avatarImages.map((img, index) => (
             <Image
@@ -82,14 +82,14 @@ const MeetingCard = ({
           </div>
 
           <div>
-            <p className="pt-1">Duration: {duration ? duration : "0 seconds"}</p>
+            <p className="pt-1">Duration: {!!duration ? duration : "0 seconds"}</p>
           </div>
 
         </div>}
 
         {isRecording && (
           <div className="mt-3 pb-6 ">
-            <p>Duration: {durationRecording ? durationRecording : "0 seconds"}</p>
+            <p>Duration: {!!durationRecording ? durationRecording : "0 seconds"}</p>
           </div>
         )}
 
