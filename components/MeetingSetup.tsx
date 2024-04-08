@@ -72,6 +72,7 @@ const MeetingSetup = ({
         <div className='-ml-12'>
           <Button
             className="rounded-md bg-dark-2 px-4 py-2.5"
+            title='Back'
             onClick={() => {
               router.replace("/")
             }}

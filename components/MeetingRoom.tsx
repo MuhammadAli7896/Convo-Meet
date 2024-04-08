@@ -67,7 +67,7 @@ const MeetingRoom = () => {
         </div>
       </div>
       {/* video layout and call controls */}
-      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
+      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5 flex-wrap max-sm:mb-5">
         <CallControls onLeave={() => router.push(`/`)} />
 
         <DropdownMenu>
@@ -98,18 +98,21 @@ const MeetingRoom = () => {
           </div>
         </button>
         {!isPersonalRoom && <EndCallButton />}
-        <Button
-          className="rounded-[60px] bg-dark-2 px-4 py-2.5"
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href);
-            toast({
-              title: "Link Copied",
-            });
-          }}
-          title='Copy link'
-        >
-          <FontAwesomeIcon icon={faCopy} style={{ height: "16px" }} />
-        </Button>
+        <div className=''>
+          <Button
+            className=" cursor-pointer rounded-2xl bg-[#19232d] px-4 py-2 hover:bg-[#4c535b] "
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              toast({
+                title: "Link Copied",
+              });
+            }}
+            title='Copy link'
+          >
+            <FontAwesomeIcon icon={faCopy} style={{ height: "16px" }} />
+          </Button>
+        </div>
+        
       </div>
     </section>
   );

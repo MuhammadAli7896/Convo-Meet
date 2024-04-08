@@ -31,9 +31,14 @@ const EndCallButton = () => {
   };
 
   return (
-    <Button onClick={endCall} className="bg-red-500">
+    <>
+    <Button onClick={endCall} className="bg-red-500 max-sm:hidden">
       End call for everyone
     </Button>
+    <Button onClick={endCall} className="bg-red-500 sm:hidden">
+      End call
+    </Button>
+    </>
   );
 };
 
