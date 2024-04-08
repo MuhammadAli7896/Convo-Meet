@@ -83,15 +83,16 @@ const MeetingCard = ({
 
           <div className="flex items-center">
             <p className="mr-1">Duration: </p>
-            {duration ? duration : "0 seconds"}
+            {duration || "0 seconds"}
           </div>
+
 
         </div>}
 
         {isRecording && (
           <div className="mt-3 pb-6 flex">
             <p className="mr-1">Duration: </p>
-            {durationRecording ? durationRecording : "0 seconds"}
+            {durationRecording || "0 seconds"}
           </div>
         )}
 
