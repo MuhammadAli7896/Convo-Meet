@@ -81,17 +81,17 @@ const MeetingCard = ({
             />
           </div>
 
-          <div>
+          {/* <div>
             <p className="pt-1">Duration: {!!duration ? duration : "0 seconds"}</p>
-          </div>
+          </div> */}
 
         </div>}
 
-        {isRecording && (
+        {/* {isRecording && (
           <div className="mt-3 pb-6 ">
             <p>Duration: {!!durationRecording ? durationRecording : "0 seconds"}</p>
           </div>
-        )}
+        )} */}
 
         {isUpcoming && (
           <div className="text-base font-normal mt-2 mb-7">
