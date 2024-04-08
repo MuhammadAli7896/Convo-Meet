@@ -13,7 +13,6 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
-
   const getCalls = () => {
     switch (type) {
       case 'ended':
@@ -39,6 +38,64 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
         return '';
     }
   };
+
+  const getCreator = (meeting: any) => {
+    if (type === 'ended' || type === "upcoming") {
+      const creator = (meeting as Call).state?.createdBy;
+      return creator
+    }
+  }
+
+  const calculateDuration = (meeting: Call) => {
+    if (type === 'ended') {
+      const startsAt = (meeting as Call).state?.startsAt;
+      const endsAt = (meeting as Call).state?.endedAt;
+      if (startsAt && endsAt) {
+        // Calculate the difference in milliseconds
+        const durationMs = endsAt.getTime() - startsAt.getTime();
+
+        // Convert milliseconds to seconds
+        const durationSeconds = Math.floor(durationMs / 1000);
+
+        // Return duration in seconds if less than a minute
+        if (durationSeconds < 60) {
+          return `${durationSeconds} seconds`;
+        } else {
+          // Calculate duration in minutes if more than or equal to a minute
+          const durationMinutes = Math.floor(durationSeconds / 60);
+          return `${durationMinutes} minutes`;
+        }
+      }
+    }
+
+    return ''; // For other types, duration might not be applicable
+  };
+
+  const calculateDurationOfRecording = (meeting: CallRecording) => {
+    if (type === "recordings") {
+      const startsAt = new Date((meeting as CallRecording).start_time);
+      const endsAt = new Date((meeting as CallRecording).end_time);
+
+      // Calculate the difference in milliseconds
+      const durationMs = endsAt.getTime() - startsAt.getTime();
+
+      // Convert milliseconds to seconds
+      const durationSeconds = Math.floor(durationMs / 1000);
+
+      // Return duration in seconds if less than a minute
+      if (durationSeconds < 60) {
+        return `${durationSeconds} seconds`;
+      } else {
+        // Calculate duration in minutes if more than or equal to a minute
+        const durationMinutes = Math.floor(durationSeconds / 60);
+        return `${durationMinutes} minutes`;
+      }
+    }
+
+    return "";
+  };
+
+
 
   useEffect(() => {
     const fetchRecordings = async () => {
@@ -83,9 +140,11 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
             }
             date={
               (meeting as Call).state?.startsAt?.toLocaleString() ||
-              (meeting as CallRecording).start_time?.toLocaleString()
+              new Date((meeting as CallRecording).start_time)?.toLocaleString()
             }
             isPreviousMeeting={type === 'ended'}
+            isRecording={type === 'recordings'}
+            isUpcoming={type === 'upcoming'}
             link={
               type === 'recordings'
                 ? (meeting as CallRecording).url
@@ -98,6 +157,9 @@ const CallList = ({ type }: { type: 'ended' | 'upcoming' | 'recordings' }) => {
                 ? () => router.push(`${(meeting as CallRecording).url}`)
                 : () => router.push(`/meeting/${(meeting as Call).id}`)
             }
+            duration={calculateDuration(meeting as Call)}
+            creator={getCreator(meeting as Call)}
+            durationRecording={calculateDurationOfRecording(meeting as CallRecording)}
           />
         ))
       ) : (

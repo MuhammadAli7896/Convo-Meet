@@ -27,7 +27,7 @@ const EndCallButton = () => {
 
   const endCall = async () => {
     await call.endCall();
-    router.push('/');
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}`
   };
 
   return (

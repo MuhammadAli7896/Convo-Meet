@@ -73,8 +73,9 @@ const MeetingSetup = ({
           <Button
             className="rounded-md bg-dark-2 px-4 py-2.5"
             title='Back'
-            onClick={() => {
-              router.replace("/")
+            onClick={async () => {
+              await call.leave();
+              window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}`
             }}
           >
             <FontAwesomeIcon icon={faArrowLeft} style={{ color: 'white', height: "20px" }} />
@@ -86,11 +87,12 @@ const MeetingSetup = ({
       </div>
       <VideoPreview />
       <div className="flex h-16 items-center justify-center gap-3">
-        <label className="flex items-center justify-center gap-2 font-medium">
+        <label className="flex items-center justify-center gap-2 font-medium cursor-pointer">
           <input
             type="checkbox"
             checked={isMicCamToggled}
             onChange={(e) => setIsMicCamToggled(e.target.checked)}
+            style={{cursor: "pointer"}}
           />
           Join with mic and camera off
         </label>
