@@ -69,7 +69,7 @@ const MeetingCard = ({
           </div>
         </div> */}
         {isPreviousMeeting && <div className="text-base font-normal">
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 items-center mb-2 pt-5">
             Hosted by: {creator.name}
             <Image
               key={creator.id}
@@ -81,15 +81,17 @@ const MeetingCard = ({
             />
           </div>
 
-          <div>
-            <p className="pt-1">Duration: {duration ? duration : "0 seconds"}</p>
+          <div className="flex items-center">
+            <p className="mr-1">Duration: </p>
+            {duration ? duration : "0 seconds"}
           </div>
 
         </div>}
 
         {isRecording && (
-          <div className="mt-3 pb-6 ">
-            <p>Duration: {durationRecording ? durationRecording : "0 seconds"}</p>
+          <div className="mt-3 pb-6 flex">
+            <p className="mr-1">Duration: </p>
+            {durationRecording ? durationRecording : "0 seconds"}
           </div>
         )}
 
