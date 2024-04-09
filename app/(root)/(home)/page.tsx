@@ -1,10 +1,25 @@
 import MeetingTypeList from '@/components/MeetingTypeList';
 
 const Home = () => {
+  // const now = new Date();
+
+  // const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  // const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+
+  // Get the current date and time from the client's system
   const now = new Date();
 
-  const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-  const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+  // Calculate the client's time zone offset in minutes
+  const timeZoneOffsetMinutes = now.getTimezoneOffset();
+
+  // Create a new date object adjusted by the time zone offset
+  const clientDateTime = new Date(now.getTime() - timeZoneOffsetMinutes);
+
+  // Format the time in 12-hour format with leading zeros (e.g., "hh:mm AM/PM")
+  const time = clientDateTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+  // Format the full date in the client's locale
+  const date = clientDateTime.toLocaleDateString('en-US', { dateStyle: 'full' });
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
