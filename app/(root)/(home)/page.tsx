@@ -10,13 +10,13 @@ const Home = () => {
   // const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
 
   // Get the current date and time from the client's system
-  const now = new Date();
+  // const now = new Date();
 
   // Calculate the client's time zone offset in minutes
-  const timeZoneOffsetMinutes = now.getTimezoneOffset();
+  // const timeZoneOffsetMinutes = now.getTimezoneOffset();
 
   // Create a new date object adjusted by the time zone offset
-  const clientDateTime = new Date(now.getTime() - timeZoneOffsetMinutes);
+  // const clientDateTime = new Date(now.getTime() - timeZoneOffsetMinutes);
 
   // Format the time in 12-hour format with leading zeros (e.g., "hh:mm AM/PM")
   // const time = clientDateTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
