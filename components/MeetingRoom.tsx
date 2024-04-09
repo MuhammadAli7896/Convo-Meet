@@ -40,7 +40,6 @@ const MeetingRoom = () => {
   const callingState = useCallCallingState();
 
   if (callingState !== CallingState.JOINED) return <Loader />;
-
   const CallLayout = () => {
     switch (layout) {
       case 'grid':
@@ -68,7 +67,7 @@ const MeetingRoom = () => {
       </div>
       {/* video layout and call controls */}
       <div className="fixed bottom-0 flex w-full items-center justify-center gap-5 flex-wrap max-sm:mb-5">
-        <CallControls onLeave={() => {window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}`} }/>
+        <CallControls onLeave={() => { window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}` }} />
 
         <DropdownMenu>
           <div className="flex items-center">
@@ -112,7 +111,7 @@ const MeetingRoom = () => {
             <FontAwesomeIcon icon={faCopy} style={{ height: "16px" }} />
           </Button>
         </div>
-        
+
       </div>
     </section>
   );

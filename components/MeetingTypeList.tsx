@@ -1,6 +1,4 @@
-/* eslint-disable camelcase */
 'use client';
-
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
