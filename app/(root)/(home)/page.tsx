@@ -1,11 +1,34 @@
 "use client"
 import MeetingTypeList from '@/components/MeetingTypeList';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
-  const now = new Date();
+  // Initialize state variables for time and date
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
 
-  const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-  const date = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+  // Function to update time and date
+  const updateTimeAndDate = () => {
+    const now = new Date();
+    const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    const formattedDate = (new Intl.DateTimeFormat('en-US', { dateStyle: 'full' })).format(now);
+    setTime(formattedTime); // Update time state
+    setDate(formattedDate); // Update date state
+  };
+
+  // useEffect to run the updateTimeAndDate function initially and on timer interval
+  useEffect(() => {
+    // Update time and date immediately when component mounts
+    updateTimeAndDate();
+
+    // Set up interval to update time and date every 60 seconds
+    const intervalId = setInterval(() => {
+      updateTimeAndDate(); // Update time and date every 60 seconds
+    }, 1000); // Interval set to 60 seconds (60 * 1000 milliseconds)
+
+    // Clean up the interval to prevent memory leaks when component unmounts
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures useEffect runs only once on mount
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
