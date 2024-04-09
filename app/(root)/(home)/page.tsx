@@ -19,10 +19,10 @@ const Home = () => {
   const clientDateTime = new Date(now.getTime() - timeZoneOffsetMinutes);
 
   // Format the time in 12-hour format with leading zeros (e.g., "hh:mm AM/PM")
-  const time = clientDateTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+  // const time = clientDateTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
   // Format the full date in the client's locale
-  const date = clientDateTime.toLocaleDateString('en-US', { dateStyle: 'full' });
+  // const date = clientDateTime.toLocaleDateString('en-US', { dateStyle: 'full' });
 
   return (
     <section className="flex size-full flex-col gap-5 text-white">
